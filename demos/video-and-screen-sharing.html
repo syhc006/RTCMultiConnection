@@ -71,7 +71,7 @@
 // ......................................................
 document.getElementById('open-room').onclick = function() {
     disableInputButtons();
-    
+
     var roomid = document.getElementById('room-id').value;
     beforeOpenOrJoin(roomid, function() {
       connection.open(roomid, function() {
@@ -82,7 +82,7 @@ document.getElementById('open-room').onclick = function() {
 
 document.getElementById('join-room').onclick = function() {
     disableInputButtons();
-    
+
     var roomid = document.getElementById('room-id').value;
     beforeOpenOrJoin(roomid, function() {
       connection.join(roomid, function() {

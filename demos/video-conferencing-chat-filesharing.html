@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Audio+Video+TextChat+FileSharing using RTCMultiConnection</title>
+  <title>视频会议</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="/demos/logo.png">
   <link rel="stylesheet" href="/demos/stylesheet.css">
@@ -14,47 +14,29 @@
     <a href="/" class="menu-explorer">Menu<img src="/demos/menu-icon.png" alt="Menu"></a>
     <nav>
       <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/demos/">Demos</a>
-      </li>
-      <li>
-        <a href="https://www.rtcmulticonnection.org/docs/getting-started/">Getting Started</a>
-      </li>
-      <li>
-        <a href="https://www.rtcmulticonnection.org/FAQ/">FAQ</a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/playlist?list=PLPRQUXAnRydKdyun-vjKPMrySoow2N4tl">YouTube</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection/wiki">Wiki</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection">Github</a>
+        <a href="/demos/">主页</a>
       </li>
     </nav>
   </header>
 
   <h1>
-    Audio+Video+TextChat+FileSharing using RTCMultiConnection
-    <p class="no-mobile">
+    视频会议
+   <!-- <p class="no-mobile">
       Multi-user (many-to-many) video streaming + text chat + file sharing using mesh networking model.
-    </p>
+    </p>-->
   </h1>
 
   <section class="make-center">
     <input type="text" id="room-id" value="abcdef" autocorrect=off autocapitalize=off size=20>
-    <button id="open-room">Open Room</button>
-    <button id="join-room">Join Room</button>
-    <button id="open-or-join-room">Auto Open Or Join Room</button>
+    <button id="open-room">创建房间</button>
+    <button id="join-room">加入房间</button>
+    <button id="open-or-join-room">自动创建或者加入房间</button>
 
     <br><br>
-    <input type="text" id="input-text-chat" placeholder="Enter Text Chat" disabled>
-    <button id="share-file" disabled>Share File</button>
+    <input type="text" id="input-text-chat" placeholder="输入文字对话" disabled>
+    <button id="share-file" disabled>分享文件</button>
     <br><br>
-    <button id="btn-leave-room" disabled>Leave /or close the room</button>
+    <button id="btn-leave-room" disabled>离开/关闭房间</button>
 
     <div id="room-urls" style="text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;"></div>
 
@@ -181,10 +163,7 @@ connection.sdpConstraints.mandatory = {
 // use your own TURN-server here!
 connection.iceServers = [{
     'urls': [
-        'stun:stun.l.google.com:19302',
-        'stun:stun1.l.google.com:19302',
-        'stun:stun2.l.google.com:19302',
-        'stun:stun.l.google.com:19302?transport=udp',
+      'stun:143.4.133.146:3478'
     ]
 }];
 
@@ -282,11 +261,11 @@ function showRoomURL(roomid) {
     var roomHashURL = '#' + roomid;
     var roomQueryStringURL = '?roomid=' + roomid;
 
-    var html = '<h2>Unique URL for your room:</h2><br>';
+    var html = '<h2>房间连接:</h2><br>';
 
-    html += 'Hash URL: <a href="' + roomHashURL + '" target="_blank">' + roomHashURL + '</a>';
-    html += '<br>';
-    html += 'QueryString URL: <a href="' + roomQueryStringURL + '" target="_blank">' + roomQueryStringURL + '</a>';
+    /*html += 'Hash URL: <a href="' + roomHashURL + '" target="_blank">' + roomHashURL + '</a>';
+    html += '<br>';*/
+    html += '网址: <a href="' + roomQueryStringURL + '" target="_blank">' + roomQueryStringURL + '</a>';
 
     var roomURLsDiv = document.getElementById('room-urls');
     roomURLsDiv.innerHTML = html;
